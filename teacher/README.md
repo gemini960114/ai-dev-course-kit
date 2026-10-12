@@ -59,7 +59,7 @@ teacher/
 | **macOS 安裝指南** | **尚未在實機上測試**過 | 找一台 Mac 跑完模組一到三 |
 | **公用電腦** | 學生的 GitHub 登入會留在電腦上 | 課後提醒學生執行 `gh auth logout` |
 | **階段七的遠端連線** | 示範要從教室連到 Nano4，學校網路可能擋 2222 埠；recon-all 每例需數小時 | 依 `07-demo-script.md` 第一節完成課前準備：教室實測連線、前一天先跑好示範批次；網路不通時改播示範影片（連結見 `07-demo-script.md`） |
-| **階段六的專案版本** | 學生 clone 的是 mri-data-starter 的最新版，專案更新後內容可能和教材不一致 | 正式開課前，在 mri-data-starter 建立版本標籤（目前還沒有任何標籤），再把 `06-research-paper/README.md` 的 clone 指令改成 `git clone --branch <標籤> --depth 1 ...` |
+| **階段六的專案版本** | 學生 clone 的是 mri-data-starter 的 `course-2026` 分支，`main` 之後的修改不會影響學生 | 要讓學生拿到新版時，把 `main` 合併進 `course-2026`；或另開新分支（例如 `course-2027`），並更新 `06-research-paper/README.md` 的 clone 指令與手冊連結 |
 | **階段六的資料下載** | 資料從 tw-highschool-panel 的 GitHub 下載並核對 SHA-256 | 在 mri-data-starter 執行 `uv run python src/get_data.py`，看到 `[OK]` 即正常；學校網路擋 GitHub 時，準備 zip 檔備用 |
 
 ---

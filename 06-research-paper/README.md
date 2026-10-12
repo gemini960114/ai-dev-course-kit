@@ -37,7 +37,7 @@ Methods（先寫方法並凍結）→ Results → Introduction → Discussion �
 
 ```powershell
 cd ~/Documents
-git clone https://github.com/gemini960114/mri-data-starter
+git clone --branch course-2026 https://github.com/gemini960114/mri-data-starter
 cd mri-data-starter
 uv sync
 uv run python src/get_data.py
@@ -46,7 +46,7 @@ antigravity-ide .
 
 > 若找不到 `antigravity-ide` 指令，改在 Antigravity IDE 選「檔案 → 開啟資料夾」（File → Open Folder），開啟 `mri-data-starter`。
 
-看到 `[OK] hs_school_year.csv 的 SHA-256 正確` 就完成了。接下來**照專案裡的 [學生操作手冊](https://github.com/gemini960114/mri-data-starter/blob/main/docs/student_guide.md) 一步一步做**，每一步要貼給 AI 的提示詞都在專案的 `prompts/` 資料夾。
+看到 `[OK] hs_school_year.csv 的 SHA-256 正確` 就完成了。接下來**照專案裡的 [學生操作手冊](https://github.com/gemini960114/mri-data-starter/blob/course-2026/docs/student_guide.md) 一步一步做**，每一步要貼給 AI 的提示詞都在專案的 `prompts/` 資料夾。
 
 > Windows 若出現 `Failed to hardlink files` 警告，可以忽略；或先執行 `$env:UV_LINK_MODE="copy"` 再 `uv sync`。
 
