@@ -37,4 +37,4 @@
 
 ---
 
-完成後，回到 [課程總覽](../README.md)，把「給 AI 助手的執行 Prompt」貼給 Antigravity 的 AI，安裝模組一～三。
+完成後，回到 [階段一的安裝說明](README.md)，把安裝 Prompt 貼給 Antigravity 的 AI，安裝模組一～三。
