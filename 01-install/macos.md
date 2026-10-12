@@ -74,7 +74,7 @@ fi
 ```zsh
 git --version
 uv --version
-node --version
+node --version        # 階段四需要 22.12 以上（或 20.19 以上的 20 版）
 npm --version
 npx --version
 gh --version

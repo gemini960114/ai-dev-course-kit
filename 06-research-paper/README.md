@@ -62,4 +62,4 @@ antigravity-ide .
 
 ---
 
-> 資料來源：Chuang, C.-C. (2026). *tw-highschool-panel：臺灣高級中等學校校級面板資料（103–114 學年度）* (Version 2026.10.1) [Data set]. Zenodo. https://doi.org/10.5281/zenodo.23293536（CC BY 4.0）
+> 資料來源：Chuang, C.-C. (2026). *tw-highschool-panel：臺灣高級中等學校校級面板資料（103–114 學年度）* (Version 2026.10.1) [Data set]. Zenodo. https://doi.org/10.5281/zenodo.23293537（CC BY 4.0；此為 2026.10.1 版的 DOI）

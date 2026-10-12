@@ -11,7 +11,7 @@
 | 項目 | 怎麼確認 |
 | --- | --- |
 | **Nano4 帳號與 OTP** | 能用密碼＋OTP（雙重驗證）登入；生醫 GP1 計畫還有 SU 額度 |
-| **教室網路能連 Nano4** | 在教室的電腦執行 `Test-NetConnection nano4.nchc.org.tw -Port 2222`，`TcpTestSucceeded` 為 `True`。學校網路可能擋 2222 埠，**一定要在教室實測** |
+| **教室網路能連 Nano4** | 在教室的電腦執行 `Test-NetConnection nano4.nchc.org.tw -Port 2222`，`TcpTestSucceeded` 為 `True`（macOS：`nc -vz nano4.nchc.org.tw 2222`，顯示 `succeeded` 即可）。學校網路可能擋 2222 埠，**一定要在教室實測** |
 | **Antigravity 已安裝** | 能開啟，並能使用 Remote-SSH 連線（見下方第二節） |
 | **遠端專案已安裝** | 在 Nano4 上已 clone、執行過 `scripts/setup_software.sh`（約 6 分鐘），且 `scripts/selftest.sh` 顯示 `SELFTEST PASS` |
 | **事先跑好一個示範批次** | recon-all 每例需要**數小時**（約 3 SU），**上課時不可能現場跑完**。前一天先送出 1 例的示範批次，上課時展示進度與結果 |

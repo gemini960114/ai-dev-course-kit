@@ -92,7 +92,7 @@ AI 不得盲目要求使用者重新安裝或再次全域下載；使用前若�
 
 ### Windows 注意事項
 
-1. 若執行 `npm` / `npx` 時遇到腳本執行原則問題，請優先確認執行原則為 `RemoteSigned`（僅限 `-Scope CurrentUser`）；學校或公司電腦若無法變更，改用 `npm.cmd` / `npx.cmd`。
+1. 安裝指南的模組一已將執行原則設為 `RemoteSigned`（僅限 `-Scope CurrentUser`）。若執行 `npm` / `npx` 仍被擋（例如學校或公司電腦無法變更執行原則），改用 `npm.cmd` / `npx.cmd`，不要自行修改其他範圍的執行原則。
 2. 產生的路徑與檔案指令應相容於 Windows 環境（注意路徑反斜線 `\` 與引號處理）。
 
 ### macOS 注意事項

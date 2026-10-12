@@ -1,8 +1,9 @@
 # 階段四：做一個網頁小遊戲
 
-約 30～40 分鐘。用 Node.js 建立 React 專案，請 AI 寫一個小遊戲，在瀏覽器裡玩。下一個階段依課程路線而定（見[課程總覽](../README.md)）。
+約 30～40 分鐘。用 Node.js 建立 React 專案，請 AI 寫一個小遊戲，在瀏覽器裡玩。下一個階段由老師依課程安排。
 
-> 需要：模組一已安裝 Node.js。
+> 需要：模組一已安裝 Node.js，版本 **22.12 以上**（或 20.19 以上的 20 版）。先在終端機執行 `node --version` 確認。
+> 版本太舊時，Windows 執行 `winget upgrade --id OpenJS.NodeJS.LTS -e`，macOS 執行 `brew upgrade node`，再重新開啟終端機。
 
 ---
 

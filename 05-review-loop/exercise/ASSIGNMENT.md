@@ -24,6 +24,7 @@ grade-stats/
 ├── REVIEW-LOOP.md   ← 審查流程與提示語範本
 ├── grades.csv       ← 測試資料
 ├── AGENTS.md        ← AI 規則（要用 uv、不准 pip install 等）
+├── .gitignore       ← 排除 __pycache__ 等暫存檔，避免被 commit
 └── review-log/      ← 放每一輪的審查紀錄
 ```
 

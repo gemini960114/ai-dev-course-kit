@@ -7,6 +7,7 @@
 | `AGENTS.md` | 給 AI 的規則（AI 工具會自動讀取） |
 | `grades.csv` | 測試資料（不要修改） |
 | `review-log/` | 每一輪的審查紀錄放這裡 |
+| `.gitignore` | 讓 git 忽略 `__pycache__` 等暫存檔（不用修改） |
 
 ---
 

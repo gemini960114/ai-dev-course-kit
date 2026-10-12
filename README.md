@@ -22,7 +22,7 @@ AI 幾秒鐘就能寫程式、整理文獻、寫出一篇論文，但它也會�
 2. 安裝模組一：[01-install/README.md](01-install/README.md)
 3. 從 [02 AI 整理文獻](02-organize-data/README.md) 開始，依課程地圖往下做
 
-需要：Windows 10/11 或 macOS、Google 帳號（登入 Antigravity）、GitHub 帳號（階段三起）。
+需要：Windows 10/11 或 macOS、Google 帳號（登入 Antigravity）、GitHub 帳號（階段三起）；階段五另外需要第二個 AI（例如 ChatGPT 網頁版，模型要和 Antigravity 使用的不同）。
 
 ---
 

@@ -32,7 +32,7 @@
 執行其中的「模組一：核心開發工具」（macOS 若尚未安裝 Homebrew，請先完成「事前準備」）：
 1. 先檢查 Git、uv、Node.js、gh 是否已存在。
 2. 已安裝的項目請列出版本並略過；缺少的項目才透過 WinGet（Windows）或 Homebrew（macOS）安裝。
-3. 任何一項安裝失敗時請停止並回報錯誤，不要回報成功。
+3. 全部嘗試完成後，若有任何一項失敗，請列出失敗項目與錯誤訊息，不要回報成功。
 4. 安裝完成後重載環境變數並執行版本驗證回報。
 ```
 
@@ -44,7 +44,7 @@
 - 系統原生工具（Git、uv、Node.js、gh、ffmpeg、ripgrep (rg)、jq、ImageMagick (magick)）請透過 WinGet（Windows）或 Homebrew（macOS）安裝。
 - Python 工具（edge-tts, yt-dlp）請在 uv 安裝完成後透過 uv tool 安裝。
 - 已存在的工具跳過，缺少的才安裝；套件名稱以安裝指南中的清單為準。
-- 任何一項安裝失敗時請停止並回報錯誤，不要回報成功。
+- 全部嘗試完成後，若有任何一項失敗，請列出失敗項目與錯誤訊息，不要回報成功。
 - 完成後重載 PATH，並回報所有工具的版本狀態。
 ```
 
@@ -54,7 +54,7 @@
 請先判斷我的作業系統，Windows 請參考 @01-install/windows.md，macOS 請參考 @01-install/macos.md，
 執行其中的「模組三：文件轉換工具」：
 1. 先檢查 pandoc 是否已存在，缺少才安裝。
-2. 安裝失敗時請停止並回報錯誤，不要回報成功。
+2. 安裝失敗時請列出錯誤訊息，不要回報成功。
 3. 完成後重載 PATH，回報 pandoc 版本，並執行指南中的 Word 轉檔測試。
 ```
 
@@ -71,7 +71,7 @@
 | AI 工具 | 專案規則 | 全域規則（Windows / macOS） |
 | --- | --- | --- |
 | Antigravity | 直接讀取 `AGENTS.md` | 請依官方文件設定 |
-| Claude Code | 新版在沒有 `CLAUDE.md` 時會讀取 `AGENTS.md`；舊版請建立 `CLAUDE.md`，內容只寫一行 `@AGENTS.md` | `%USERPROFILE%\.claude\CLAUDE.md` / `~/.claude/CLAUDE.md` |
+| Claude Code | 建立 `CLAUDE.md`，內容只寫一行 `@AGENTS.md`（最穩定；部分版本在沒有 `CLAUDE.md` 時也會直接讀取 `AGENTS.md`） | `%USERPROFILE%\.claude\CLAUDE.md` / `~/.claude/CLAUDE.md` |
 | Cursor | 直接讀取 `AGENTS.md` | Settings → Rules → User Rules |
 | OpenCode | 直接讀取 `AGENTS.md` | `~/.config/opencode/AGENTS.md` |
 | Gemini CLI | 建立 `GEMINI.md`，內容寫 `@AGENTS.md` | `%USERPROFILE%\.gemini\GEMINI.md` / `~/.gemini/GEMINI.md` |
