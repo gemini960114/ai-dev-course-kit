@@ -1,2 +1,3 @@
-# 教師參考資料，不公開給學生
-review-loop/exercise-grade-stats/TEACHER-NOTES.md
+# 階段二 AI 整理的輸出結果（保留空資料夾）
+02-organize-data/output/*
+!02-organize-data/output/.gitkeep

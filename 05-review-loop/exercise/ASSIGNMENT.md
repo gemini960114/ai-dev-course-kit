@@ -3,7 +3,7 @@
 用 AI 寫一個 Python 小程式，再用「AI 交叉審查流程」把它改到可以發布。  
 **這份作業的重點不是程式本身，而是你的審查判斷紀錄。**
 
-流程請依照 [REVIEW-LOOP.md](../REVIEW-LOOP.md)，示範案例見 [example-install-guide](../example-install-guide/README.md)。
+流程請依照 [REVIEW-LOOP.md](../REVIEW-LOOP.md)，示範案例見 [example](../example/README.md)。
 
 ---
 
@@ -27,26 +27,26 @@ grade-stats/
 └── review-log/      ← 放每一輪的審查紀錄
 ```
 
-把**整個 `grade-stats` 資料夾複製到 INSTALL 以外的地方**（例如「文件」底下），用 VS Code 開啟它，再執行 `git init` 與 `uv init --bare`。
+把**整個 `grade-stats` 資料夾複製到教材資料夾以外的地方**（例如「文件」底下），用 VS Code 開啟它，再執行 `git init` 與 `uv init --bare`。
 
 > 複製前先確認「文件」裡沒有同名的 `grade-stats` 資料夾；若已存在，請先改名備份，避免新舊檔案混在一起。
 
-> 為什麼不能直接在 INSTALL 裡做？AI 工具會讀取整個開啟的資料夾，在自己的專案資料夾裡練習，AI 才只會看到你的專案。
+> 為什麼不能直接在教材資料夾裡做？AI 工具會讀取整個開啟的資料夾，在自己的專案資料夾裡練習，AI 才只會看到你的專案。
 
-Windows（PowerShell，在 INSTALL 資料夾中執行）：
+Windows（PowerShell，在教材資料夾中執行）：
 
 ```powershell
-Copy-Item -Recurse review-loop\exercise-grade-stats\grade-stats $HOME\Documents\grade-stats
+Copy-Item -Recurse 05-review-loop\exercise\grade-stats $HOME\Documents\grade-stats
 cd $HOME\Documents\grade-stats
 git init
 uv init --bare
 code .
 ```
 
-macOS（終端機，在 INSTALL 資料夾中執行）：
+macOS（終端機，在教材資料夾中執行）：
 
 ```zsh
-cp -R review-loop/exercise-grade-stats/grade-stats ~/Documents/grade-stats
+cp -R 05-review-loop/exercise/grade-stats ~/Documents/grade-stats
 cd ~/Documents/grade-stats
 git init
 uv init --bare

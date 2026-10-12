@@ -1,4 +1,4 @@
-# AI 交叉審查練習：課程規劃（教師用）
+# 階段五 AI 交叉審查：課程規劃（教師用）
 
 讓學生練習「用一個 AI 產出、另一個 AI 審查、自己判斷要不要採納」的工作流程。
 
@@ -9,20 +9,23 @@
 ## 資料夾內容
 
 ```text
-review-loop/
-├── README.md                ← 本文件：課程規劃、時間分配、評分方式
-├── REVIEW-LOOP.md           ← 流程說明與提示語範本（發給學生，可複製到自己的專案）
-├── example-install-guide/   ← 示範案例：安裝教材經過 3 輪、5 位 AI 專家審查的判斷紀錄（專家回覆為節錄）
-└── exercise-grade-stats/    ← 練習題：CSV 成績統計小程式
+05-review-loop/              ← 學生看的教材
+├── README.md                ← 本階段入口
+├── REVIEW-LOOP.md           ← 流程說明與提示語範本
+├── example/                 ← 示範案例：安裝教材經過 3 輪、5 位 AI 專家審查的判斷紀錄（專家回覆為節錄）
+└── exercise/                ← 練習題：CSV 成績統計小程式
     ├── ASSIGNMENT.md        ← 學生題目
-    ├── TEACHER-NOTES.md     ← 教師參考：埋設的陷阱、常見的錯誤建議、評分重點
     └── grade-stats/         ← 學生的起始資料夾（整個複製出去使用）
         ├── README.md        ← 學生從這裡開始（三個步驟）
         ├── REQUIREMENTS.md  ← 程式需求
-        ├── REVIEW-LOOP.md   ← 流程範本（上層 REVIEW-LOOP.md 的副本）
+        ├── REVIEW-LOOP.md   ← 流程範本（上層 REVIEW-LOOP.md 的副本，修改時要同步）
         ├── grades.csv       ← 測試資料（含刻意設計的髒資料）
         ├── AGENTS.md        ← 本練習專用的 AI 規則
         └── review-log/      ← 審查紀錄放這裡
+
+teacher/                     ← 老師專用
+├── 05-course-plan.md        ← 本文件：課程規劃、時間分配、評分方式
+└── 05-answers.md            ← 參考答案：陷阱、正確答案、常見錯誤建議
 ```
 
 ---
@@ -42,9 +45,9 @@ review-loop/
 
 | 時間 | 內容 |
 | --- | --- |
-| 15 分 | 說明流程（[REVIEW-LOOP.md](REVIEW-LOOP.md)）與四個步驟 |
-| 25 分 | 帶讀示範案例 [example-install-guide](example-install-guide/README.md)，重點放在「專家說錯的地方」 |
-| 10 分 | 發下練習題 [ASSIGNMENT.md](exercise-grade-stats/ASSIGNMENT.md)，建立專案資料夾並 `git init` |
+| 15 分 | 說明流程（[REVIEW-LOOP.md](../05-review-loop/REVIEW-LOOP.md)）與四個步驟 |
+| 25 分 | 帶讀示範案例 [example](../05-review-loop/example/README.md)，重點放在「專家說錯的地方」 |
+| 10 分 | 發下練習題 [ASSIGNMENT.md](../05-review-loop/exercise/ASSIGNMENT.md)，建立專案資料夾並 `git init` |
 | 40 分 | 學生完成第 0 輪（AI 產出程式）與第 1 輪審查 |
 
 ### 第二次課

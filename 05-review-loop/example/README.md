@@ -1,6 +1,7 @@
 # 示範案例：安裝教材的交叉審查紀錄
 
 **產出內容：** Windows／macOS 開發環境安裝教材（README.md、AGENTS.md、windows/install-quick.md、macos/install-quick.md）。  
+**註：** 紀錄中的檔名是審查當時的名稱；目前安裝指南已改為 `01-install/windows.md`、`01-install/macos.md`。  
 **產出者：** Claude Code（Claude Opus）。  
 **審查者：** 5 位 AI 專家，共 3 輪。  
 **結果：** 第 3 輪兩位審查者都判定「可以發布」，沒有 🔴 項目。

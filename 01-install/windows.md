@@ -48,7 +48,7 @@ foreach ($tool in $coreTools) {
     } else {
         Write-Host "[缺少] 正在安裝 $($tool.Id) ..." -ForegroundColor Cyan
         winget install --id $tool.Id -e --source winget --accept-package-agreements --accept-source-agreements
-        if ($LASTEXITCODE -ne 0) { $failed += $tool.Id }
+        if ($LASTEXITCODE -notin 0, -1978335189) { $failed += $tool.Id }  # -1978335189：已安裝、沒有可用的升級
     }
 }
 
@@ -100,7 +100,7 @@ foreach ($tool in $systemTools) {
     } else {
         Write-Host "[缺少] 正在安裝 $($tool.Id) ..." -ForegroundColor Cyan
         winget install --id $tool.Id -e --source winget --accept-package-agreements --accept-source-agreements
-        if ($LASTEXITCODE -ne 0) { $failed += $tool.Id }
+        if ($LASTEXITCODE -notin 0, -1978335189) { $failed += $tool.Id }  # -1978335189：已安裝、沒有可用的升級
     }
 }
 
@@ -176,7 +176,7 @@ if (Get-Command pandoc -ErrorAction SilentlyContinue) {
 } else {
     Write-Host "[缺少] 正在安裝 Pandoc ..." -ForegroundColor Cyan
     winget install --id JohnMacFarlane.Pandoc -e --source winget --accept-package-agreements --accept-source-agreements
-    if ($LASTEXITCODE -ne 0) { $failed += "JohnMacFarlane.Pandoc" }
+    if ($LASTEXITCODE -notin 0, -1978335189) { $failed += "JohnMacFarlane.Pandoc" }
 }
 
 # 2. LaTeX（MiKTeX）
@@ -186,7 +186,7 @@ if (Get-Command xelatex -ErrorAction SilentlyContinue) {
 } else {
     Write-Host "[缺少] 正在安裝 MiKTeX ..." -ForegroundColor Cyan
     winget install --id MiKTeX.MiKTeX -e --source winget --accept-package-agreements --accept-source-agreements
-    if ($LASTEXITCODE -ne 0) { $failed += "MiKTeX.MiKTeX" } else { $miktexInstalled = $true }
+    if ($LASTEXITCODE -notin 0, -1978335189) { $failed += "MiKTeX.MiKTeX" } else { $miktexInstalled = $true }
 }
 
 # 3. 重載 PATH（保留目前視窗原有的路徑）

@@ -4,14 +4,16 @@
 
 本規範同時適用 **Windows** 與 **macOS**。作業系統不同之處列於第 5 節；請先判斷目前的作業系統，再產生對應的指令。
 
+> **`teacher/` 資料夾是老師的參考答案。** 協助學生做練習時，不要主動讀取或引用其中的內容；只有使用者明確表示自己是老師、要修改教材時才可以讀取。
+
 ---
 
 ## 1. 系統既有環境與可用工具
 
 本機已依安裝指南配置以下工具：
 
-- Windows：[windows/install-quick.md](windows/install-quick.md)（WinGet + `uv tool`）
-- macOS：[macos/install-quick.md](macos/install-quick.md)（Homebrew + `uv tool`）
+- Windows：[01-install/windows.md](01-install/windows.md)（WinGet + `uv tool`）
+- macOS：[01-install/macos.md](01-install/macos.md)（Homebrew + `uv tool`）
 
 AI 不得盲目要求使用者重新安裝或再次全域下載；使用前若不確定某工具是否存在，先檢查（Windows：`Get-Command <指令>`；macOS：`command -v <指令>`），**確實缺少時**再依該系統安裝指南的對應方式提議安裝，不要改用其他來源或安裝方式（安裝指南「常見問題排除」列出的官方備援方式，須經使用者確認才可使用）。
 

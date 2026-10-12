@@ -6,13 +6,27 @@
 
 ## 目錄結構
 
+依課程順序編號：
+
 ```text
-INSTALL/
-├── README.md                 ← 本文件：依作業系統選擇安裝指南
-├── AGENTS.md                 ← 給 AI 助手的環境規範（兩個系統共用）
-├── windows/install-quick.md  ← Windows 安裝指南（WinGet + uv）
-├── macos/install-quick.md    ← macOS 安裝指南（Homebrew + uv）
-└── review-loop/              ← AI 交叉審查練習（課程教材）
+ai-dev-course-kit/
+├── README.md          ← 本文件：課程總覽
+├── AGENTS.md          ← 給 AI 助手的環境規範（兩個系統共用）
+├── 01-install/        ← 階段一：安裝環境
+│   ├── windows.md     ← Windows 安裝指南（WinGet + uv）
+│   └── macos.md       ← macOS 安裝指南（Homebrew + uv）
+├── 02-organize-data/  ← 階段二：AI 整理文獻（約 30 分鐘）
+├── 03-hello-github/   ← 階段三：連線 GitHub（約 30 分鐘）
+├── 04-web-game/       ← 階段四：網頁小遊戲（約 30～40 分鐘）
+├── 05-review-loop/    ← 階段五：AI 交叉審查
+└── teacher/           ← 老師專用：課程規劃與參考答案
+```
+
+## 課程順序
+
+```text
+01-install（安裝）→ 02-organize-data（AI 整理文獻）→ 03-hello-github（連線 GitHub）
+→ 04-web-game（網頁小遊戲）→ 05-review-loop（AI 交叉審查）
 ```
 
 ## 安裝模組
@@ -23,8 +37,8 @@ INSTALL/
 | 模組二（多媒體與進階 CLI） | ffmpeg、ripgrep (`rg`)、jq、ImageMagick、edge-tts、yt-dlp | WinGet + uv tool | Homebrew + uv tool |
 | 模組三（論文寫作） | Pandoc、LaTeX（`xelatex`） | MiKTeX | MacTeX |
 
-- **Windows**：[windows/install-quick.md](windows/install-quick.md)（Windows 10 請先確認 WinGet 可用，見文件中的「事前確認」）
-- **macOS**：[macos/install-quick.md](macos/install-quick.md)（需先完成文件中的「事前準備」安裝 Homebrew）
+- **Windows**：[01-install/windows.md](01-install/windows.md)（Windows 10 請先確認 WinGet 可用，見文件中的「事前確認」）
+- **macOS**：[01-install/macos.md](01-install/macos.md)（需先完成文件中的「事前準備」安裝 Homebrew）
 
 ---
 
@@ -35,7 +49,7 @@ INSTALL/
 ### 推薦 Prompt 1：僅安裝核心開發環境（極簡安全）
 
 ```text
-請先判斷我的作業系統，Windows 請參考 @windows/install-quick.md，macOS 請參考 @macos/install-quick.md，
+請先判斷我的作業系統，Windows 請參考 @01-install/windows.md，macOS 請參考 @01-install/macos.md，
 執行其中的「模組一：核心開發工具」（macOS 若尚未安裝 Homebrew，請先完成「事前準備」）：
 1. 先檢查 Git、uv、Node.js、gh 是否已存在。
 2. 已安裝的項目請列出版本並略過；缺少的項目才透過 WinGet（Windows）或 Homebrew（macOS）安裝。
@@ -46,7 +60,7 @@ INSTALL/
 ### 推薦 Prompt 2：安裝模組一與模組二（核心 + 多媒體與進階 CLI）
 
 ```text
-請先判斷我的作業系統，Windows 請參考 @windows/install-quick.md，macOS 請參考 @macos/install-quick.md，
+請先判斷我的作業系統，Windows 請參考 @01-install/windows.md，macOS 請參考 @01-install/macos.md，
 幫我檢查並安裝模組一與模組二：
 - 系統原生工具（Git、uv、Node.js、gh、ffmpeg、ripgrep (rg)、jq、ImageMagick (magick)）請透過 WinGet（Windows）或 Homebrew（macOS）安裝。
 - Python 工具（edge-tts, yt-dlp）請在 uv 安裝完成後透過 uv tool 安裝。
@@ -60,7 +74,7 @@ INSTALL/
 > LaTeX 需下載數 GB，建議在家中寬頻網路執行，避免全班同時在教室下載。
 
 ```text
-請先判斷我的作業系統，Windows 請參考 @windows/install-quick.md，macOS 請參考 @macos/install-quick.md，
+請先判斷我的作業系統，Windows 請參考 @01-install/windows.md，macOS 請參考 @01-install/macos.md，
 執行其中的「模組三：論文寫作工具」：
 1. 先檢查 pandoc 與 xelatex 是否已存在（若已有其他 LaTeX 發行版，請跳過 LaTeX 安裝）。
 2. 缺少的項目才安裝（Windows：MiKTeX；macOS：MacTeX）。
@@ -82,7 +96,7 @@ INSTALL/
 | Antigravity | 直接讀取 `AGENTS.md` | 請依官方文件設定 |
 | Gemini CLI | 建立 `GEMINI.md`，內容寫 `@AGENTS.md` | `%USERPROFILE%\.gemini\GEMINI.md` / `~/.gemini/GEMINI.md` |
 
-> 複製到全域規則檔時，AGENTS.md 裡指向 `windows/install-quick.md`、`macos/install-quick.md` 的相對連結會失效，請改成這兩份文件在你電腦上的完整路徑。
+> 複製到全域規則檔時，AGENTS.md 裡指向 `01-install/windows.md`、`01-install/macos.md` 的相對連結會失效，請改成這兩份文件在你電腦上的完整路徑。
 
 ---
 
