@@ -8,7 +8,17 @@
 
 **第 0 步（手動）：安裝 AI 編輯器**，見 [00-antigravity.md](00-antigravity.md)。有了 AI 編輯器，後面的模組才能交給 AI 安裝。
 
-**第 1 步起：安裝模組一～三**，可以把下方的 Prompt 貼給 AI，或照安裝指南手動執行。
+**第 1 步：取得教材。** 後面的安裝 Prompt 和練習都需要教材檔案在你的電腦上。
+
+- **還沒有 Git（第一次上課）**：下載 [ZIP 檔](https://github.com/gemini960114/ai-dev-course-kit/archive/refs/heads/main.zip)，解壓縮到「文件」。Windows：在檔案上按右鍵 →「解壓縮全部」；macOS：連按兩下。解壓縮後的資料夾名稱是 `ai-dev-course-kit-main`。
+- **已經有 Git**：在終端機執行：
+
+  ```powershell
+  cd ~/Documents
+  git clone https://github.com/gemini960114/ai-dev-course-kit
+  ```
+
+**第 2 步起：安裝模組一～三**，可以把下方的 Prompt 貼給 AI，或照安裝指南手動執行。
 
 | 模組 | 內容 | Windows | macOS |
 | --- | --- | --- | --- |

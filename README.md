@@ -21,8 +21,9 @@ AI 幾秒鐘就能寫程式、整理文獻、寫出一篇論文，但它也會�
 ## 開始
 
 1. 安裝 AI 編輯器：[01-install/00-antigravity.md](01-install/00-antigravity.md)
-2. 安裝模組一：[01-install/README.md](01-install/README.md)
-3. 從 [02 AI 整理文獻](02-organize-data/README.md) 開始，依課程地圖往下做
+2. 取得教材：下載 [ZIP 檔](https://github.com/gemini960114/ai-dev-course-kit/archive/refs/heads/main.zip)，解壓縮到「文件」（資料夾名稱為 `ai-dev-course-kit-main`）。已經裝好 Git 的人也可以用 `git clone https://github.com/gemini960114/ai-dev-course-kit`
+3. 用 Antigravity IDE 開啟教材資料夾，安裝模組一：[01-install/README.md](01-install/README.md)
+4. 從 [02 AI 整理文獻](02-organize-data/README.md) 開始，依課程地圖往下做
 
 需要：Windows 10/11 或 macOS、Google 帳號（登入 Antigravity）、GitHub 帳號（階段三起）；階段五另外需要第二個 AI（例如 ChatGPT 網頁版，模型要和 Antigravity 使用的不同）。
 
