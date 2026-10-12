@@ -4,6 +4,7 @@
 
 > 需要：模組一已安裝 Node.js，版本 **22.12 以上**（或 20.19 以上的 20 版）。先在終端機執行 `node --version` 確認。
 > 版本太舊時，Windows 執行 `winget upgrade --id OpenJS.NodeJS.LTS -e`，macOS 執行 `brew upgrade node`，再重新開啟終端機。
+> 若顯示找不到已安裝的套件（Node.js 當初不是用 winget／Homebrew 安裝的），改用 `winget install --id OpenJS.NodeJS.LTS -e` 或 `brew install node`。
 
 ---
 

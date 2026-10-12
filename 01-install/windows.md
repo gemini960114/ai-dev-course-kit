@@ -57,6 +57,15 @@ foreach ($tool in $coreTools) {
 # 4. 即時重載環境變數 PATH（保留目前視窗原有的路徑）
 $env:Path = [Environment]::GetEnvironmentVariable("Path", "Machine") + ";" + [Environment]::GetEnvironmentVariable("Path", "User") + ";" + $env:Path
 
+# 5. 檢查 Node.js 版本（階段四需要 22.12 以上，或 20.19 以上的 20 版）
+if (Get-Command node -ErrorAction SilentlyContinue) {
+    node -e "const [a,b]=process.versions.node.split('.').map(Number);process.exit(a>22||(a===22&&b>=12)||(a===20&&b>=19)?0:1)"
+    if ($LASTEXITCODE -ne 0) {
+        Write-Host "[版本過舊] Node.js $(node --version)：請執行 winget upgrade --id OpenJS.NodeJS.LTS -e；若顯示找不到已安裝的套件，改用 winget install --id OpenJS.NodeJS.LTS -e，再重新開啟 PowerShell。" -ForegroundColor Red
+        $failed += "Node.js 版本過舊"
+    }
+}
+
 if ($failed) {
     Write-Host "`n以下項目安裝失敗：$($failed -join ', ')。請查看上方錯誤訊息，處理後重新執行本段。" -ForegroundColor Red
 } else {

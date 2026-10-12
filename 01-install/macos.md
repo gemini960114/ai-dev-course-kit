@@ -44,23 +44,33 @@ brew --version
 複製以下指令貼入終端機執行（已存在則自動跳過）：
 
 ```zsh
-command -v brew >/dev/null 2>&1 || echo "錯誤：找不到 brew，請先完成上方「事前準備」再執行本段。"
-
 # 格式為「指令名稱:Homebrew 套件名稱」
 coreTools=(git:git uv:uv node:node gh:gh)
 failed=()
 
-for t in "${coreTools[@]}"; do
-    cmd=${t%%:*}; pkg=${t#*:}
-    if command -v $cmd >/dev/null 2>&1; then
-        echo "[已安裝] $cmd，跳過。"
-    else
-        echo "[缺少] 正在安裝 $pkg ..."
-        brew install $pkg || failed+=("$pkg")
-    fi
-done
+if ! command -v brew >/dev/null 2>&1; then
+    echo "錯誤：找不到 brew，請先完成上方「事前準備」再執行本段。"
+    failed+=("Homebrew")
+else
+    for t in "${coreTools[@]}"; do
+        cmd=${t%:*}; pkg=${t#*:}
+        if command -v $cmd >/dev/null 2>&1; then
+            echo "[已安裝] $cmd，跳過。"
+        else
+            echo "[缺少] 正在安裝 $pkg ..."
+            brew install $pkg || failed+=("$pkg")
+        fi
+    done
+fi
 
 hash -r
+
+# 檢查 Node.js 版本（階段四需要 22.12 以上，或 20.19 以上的 20 版）
+if command -v node >/dev/null 2>&1 && ! node -e "const [a,b]=process.versions.node.split('.').map(Number);process.exit(a>22||(a===22&&b>=12)||(a===20&&b>=19)?0:1)"; then
+    echo "[版本過舊] Node.js $(node --version)：請執行 brew upgrade node；若顯示 node 不是用 Homebrew 安裝的，改用 brew install node，再重新開啟終端機。"
+    failed+=("Node.js 版本過舊")
+fi
+
 echo
 if [ ${#failed[@]} -gt 0 ]; then
     echo "以下項目安裝失敗：${failed[*]}。請查看上方錯誤訊息，處理後重新執行本段。"
