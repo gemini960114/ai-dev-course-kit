@@ -27,4 +27,5 @@ AI 幾秒鐘就能寫程式、整理文獻、寫出一篇論文，但它也會�
 ---
 
 **給老師：** 依對象選擇的課程路線、上課前檢查清單、參考答案與示範腳本，見 [teacher/README.md](teacher/README.md)。
+
 **關於 [AGENTS.md](AGENTS.md)：** 給 AI 的規則，用 Antigravity IDE 開啟這個資料夾時會自動套用。
