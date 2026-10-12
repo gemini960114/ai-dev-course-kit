@@ -12,3 +12,8 @@ desktop.ini
 __pycache__/
 node_modules/
 dist/
+
+# 教學網站：由 scripts/sync-docs.mjs 產生的頁面與 VitePress 建置結果
+docs/guide/
+docs/.vitepress/cache/
+docs/.vitepress/.temp/
