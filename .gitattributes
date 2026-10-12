@@ -1,0 +1,2 @@
+# grades.csv 刻意保留 UTF-8 BOM 與 CRLF 換行（練習的陷阱之一），不讓 git 轉換
+review-loop/exercise-grade-stats/grade-stats/grades.csv -text
