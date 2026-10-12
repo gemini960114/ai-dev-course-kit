@@ -20,7 +20,7 @@ teacher/
 | 一 | `01-install/` | 模組一約 15～30 分鐘；模組二、三可課後安裝 | 安裝開發環境 | — |
 | 二 | `02-organize-data/` | 約 30 分鐘 | 請 AI 整理文獻比較表，並**檢查 AI 有沒有編造內容** | `02-answers.md` |
 | 三 | `03-hello-github/` | 約 30 分鐘 | 登入 GitHub，用 git 存版本、推上 GitHub | — |
-| 四 | `04-web-game/` | 約 30～40 分鐘 | 用自然語言請 AI 做出網頁小遊戲 | — |
+| 四 | `04-web-game/` | 約 30～40 分鐘 | 用自然語言請 AI 做出網頁小遊戲，並自己玩一輪檢查 AI 說的「完成」 | — |
 | 五 | `05-review-loop/` | 兩次課，各 90 分鐘 | 用另一個 AI 交叉審查，自己判斷要不要採納 | `05-course-plan.md`、`05-answers.md` |
 | 六 | `06-research-paper/` | 約 3 小時（建議分兩次）＋課後作業 2 小時 | 用 MRI-DATA 流程和 AI 協作寫研究論文，每個數字都查得到來源 | 使用獨立專案 [mri-data-starter](https://github.com/gemini960114/mri-data-starter) 的學生操作手冊 |
 | 七 | `07-hpc-demo/` | 約 20～30 分鐘（**教師示範**，學生不操作） | 看 AI 在超級電腦上操作真實研究管線，以及 AI 在真實運作中犯過的 20 個錯誤 | `07-demo-script.md` |
