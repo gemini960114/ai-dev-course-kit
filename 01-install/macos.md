@@ -6,6 +6,8 @@
 > - 建議使用 Apple Silicon（M 系列晶片）Mac 與近期版本的 macOS。Intel Mac 在 Homebrew 的支援層級較低，部分套件可能沒有預先編譯版本，需要較長的編譯時間或安裝失敗。
 > - 偵測到已存在的工具會保留現有版本、不會自動升級；請以各模組的「驗證」結果為準。
 
+> 開始之前：若要把安裝工作交給 AI，請先完成[第 0 步：安裝 Antigravity IDE](00-antigravity.md)。
+
 ---
 
 ## 事前準備：Homebrew
@@ -160,17 +162,15 @@ rg "API_KEY" -g '!node_modules/**'  # 不在 Git 儲存庫時，手動排除 nod
 
 ---
 
-## 模組三：論文寫作工具（Pandoc + LaTeX）
+## 模組三：文件轉換工具（Pandoc）
 
-包含：`Pandoc`（文件轉換）、`MacTeX`（完整 TeX Live 發行版，提供 `xelatex`，支援中文）。
+包含：`Pandoc`（Markdown、Word、HTML 等格式互轉）。安裝檔小，幾秒鐘就完成。
 
-- 若電腦已安裝其他 LaTeX（偵測到 `xelatex`），會自動跳過，不會重複安裝。
-- `mactex-no-gui` 需下載並佔用數 GB 空間，請先確認磁碟空間，並在穩定的寬頻網路下安裝；過程中會要求輸入密碼。
+> 本課程的練習都**不需要全域安裝 LaTeX**。唯一需要 PDF 的是階段六的 APA 排版作業：照該作業的提示語，AI 會把 Tectonic 下載到那個專案的 `tools/` 資料夾（下載前會先詢問你）；無法下載時，可改用 Overleaf 線上編譯。
 
 ```zsh
 failed=()
 
-# 1. Pandoc
 if command -v pandoc >/dev/null 2>&1; then
     echo "[已安裝] pandoc，跳過。"
 else
@@ -178,62 +178,45 @@ else
     brew install pandoc || failed+=("pandoc")
 fi
 
-# 2. LaTeX（MacTeX，不含 GUI 應用程式）
-if command -v xelatex >/dev/null 2>&1; then
-    echo "[已安裝] LaTeX（xelatex），跳過。"
-else
-    echo "[缺少] 正在安裝 MacTeX ..."
-    brew install --cask mactex-no-gui || failed+=("mactex-no-gui")
-fi
-
-# 3. 重載 PATH（MacTeX 安裝於 /Library/TeX/texbin）
-eval "$(/usr/libexec/path_helper)"
 hash -r
-
 echo
 if [ ${#failed[@]} -gt 0 ]; then
     echo "以下項目安裝失敗：${failed[*]}。請查看上方錯誤訊息，處理後重新執行本段。"
 else
-    echo "論文工具安裝檢查完成！"
+    echo "文件轉換工具安裝檢查完成！"
 fi
 ```
 
-### 論文工具驗證
-
-先確認版本：
+### 文件轉換工具驗證
 
 ```zsh
 pandoc --version
-xelatex --version
 ```
 
-再實際編譯一份中文 PDF（**第一次需建立字型快取，可能需要 1～2 分鐘，畫面停住屬正常現象，請勿按 Ctrl+C 中斷**）：
+再實際把一份含中文表格的 Markdown 轉成 Word：
 
 ```zsh
 cd "${TMPDIR:-/tmp}"
-printf '%s\n' '中文論文測試：繁體中文可以正常顯示。' > chinese-test.md
-if pandoc chinese-test.md -o chinese-test.pdf --pdf-engine=xelatex -V CJKmainfont="Songti TC"; then
-    echo "中文 PDF 編譯成功！"
-    open chinese-test.pdf
+printf '%s\n' '# 轉檔測試' '' '| 欄位 | 內容 |' '| --- | --- |' '| 中文 | 正常顯示 |' > pandoc-test.md
+if pandoc pandoc-test.md -o pandoc-test.docx; then
+    echo "Word 轉檔成功！"
+    open pandoc-test.docx
 else
-    echo "中文 PDF 編譯失敗，請查看上方錯誤訊息；若出現 xeCJK.sty not found，請見「常見問題排除」第 4 點。"
+    echo "Word 轉檔失敗，請查看上方錯誤訊息。"
 fi
 ```
 
-### 論文工具使用範例
+### 文件轉換工具使用範例
 
 ```zsh
-# Markdown 轉 Word（只需要 pandoc）
-pandoc thesis.md -o thesis.docx
-
-# Markdown 轉 PDF（中文需用 xelatex 並指定中文字型）
-pandoc thesis.md -o thesis.pdf --pdf-engine=xelatex -V CJKmainfont="Songti TC"
-
-# 直接編譯 LaTeX 論文（.tex 檔內需已載入 xeCJK 並設定中文字型）
-xelatex thesis.tex
+pandoc report.md -o report.docx     # Markdown 轉 Word
+pandoc report.docx -o report.md     # Word 轉 Markdown（方便交給 AI 整理）
+pandoc report.md -o report.html     # Markdown 轉網頁
 ```
 
-> 若出現找不到字型的錯誤，請開啟「字體簿」（Font Book）確認字型名稱後替換，建議使用系統內建的 `Songti TC` 或 `Heiti TC`。不建議使用 `PingFang TC`：macOS 15 之後 xelatex 常找不到它。
+### 選讀：需要完整 LaTeX 時
+
+自己要用 LaTeX 寫論文（例如學校的論文範本）時，才需要另外安裝完整的 LaTeX 發行版，例如 MacTeX：`brew install --cask mactex-no-gui`（數 GB，建議在家中寬頻網路安裝）。本課程不需要。
 
 ---
 
@@ -249,10 +232,7 @@ xelatex thesis.tex
 3. **出現 `xcrun: error: invalid active developer path`**：
    - 系統更新後 Command Line Tools 失效，重新執行：`xcode-select --install`，在跳出的視窗按「安裝」。
 
-4. **中文 PDF 出現 `xeCJK.sty not found`**：
-   - 通常是之前裝過精簡版 BasicTeX，所以模組三偵測到 `xelatex` 而跳過。可補裝：`sudo tlmgr install xecjk`；或改用完整版：先 `brew uninstall --cask basictex`，再重新執行模組三。
-
-5. **Homebrew 安裝 uv 失敗時的備用方式**：
+4. **Homebrew 安裝 uv 失敗時的備用方式**：
    - 先執行 `brew update` 後重試。
    - 仍失敗時，**經使用者確認後**才可改用 Astral 官方安裝指令：
      ```zsh

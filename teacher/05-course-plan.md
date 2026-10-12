@@ -47,7 +47,7 @@ teacher/                     ← 老師專用
 | --- | --- |
 | 15 分 | 說明流程（[REVIEW-LOOP.md](../05-review-loop/REVIEW-LOOP.md)）與四個步驟 |
 | 25 分 | 帶讀示範案例 [example](../05-review-loop/example/README.md)，重點放在「專家說錯的地方」 |
-| 10 分 | 發下練習題 [ASSIGNMENT.md](../05-review-loop/exercise/ASSIGNMENT.md)，建立專案資料夾並 `git init` |
+| 10 分 | 發下練習題 [ASSIGNMENT.md](../05-review-loop/exercise/ASSIGNMENT.md)，學生複製起始資料夾 `grade-stats`，執行 `git init` 與 `uv init --bare` |
 | 40 分 | 學生完成第 0 輪（AI 產出程式）與第 1 輪審查 |
 
 ### 第二次課
@@ -58,7 +58,7 @@ teacher/                     ← 老師專用
 | 30 分 | 分組分享：「我否決了哪個建議？為什麼？」 |
 | 10 分 | 總結與繳交 |
 
-> 課前作業：確認學生已完成安裝教材的模組一（需要 Git、uv、gh），並至少能使用兩個不同的 AI 工具（例如 Claude Code + ChatGPT／Gemini 網頁版）。
+> 課前作業：確認學生已完成安裝教材的模組一（需要 Git、uv、gh），並至少能使用兩個不同的 AI：Antigravity IDE 寫程式，另一個網頁版 AI（例如 ChatGPT）審查；審查用的 AI 要和 Antigravity 目前使用的**模型**不同。
 
 ---
 

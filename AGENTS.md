@@ -33,10 +33,10 @@ AI 不得盲目要求使用者重新安裝或再次全域下載；使用前若�
 - **jq**：命令列 JSON 剖析與過濾器
 - **ImageMagick (`magick`)**：影像批次處理
 
-### 論文寫作（模組三）
+### 文件轉換（模組三）
 
-- **pandoc**：多格式文件轉換器（Markdown、Docx、PDF 等）
-- **LaTeX（`xelatex`）**：論文排版（Windows 為 MiKTeX，macOS 為 MacTeX）；中文文件一律使用 `xelatex` 編譯
+- **pandoc**：多格式文件轉換器（Markdown、Word、HTML 等）
+- 本機**未全域安裝 LaTeX**。需要輸出 PDF 時，先詢問使用者；建議在專案內下載 Tectonic 處理，不要自行安裝 MiKTeX／MacTeX。
 
 ---
 
@@ -60,12 +60,13 @@ AI 不得盲目要求使用者重新安裝或再次全域下載；使用前若�
 
 1. **語音生成（文字轉語音）**：
    - 優先使用 `edge-tts`（例如：`edge-tts --voice zh-TW-HsiaoChenNeural --text "內容" --write-media output.mp3`），避免呼叫高成本或需複雜設定的第三方 API。可用 `edge-tts --list-voices` 查詢語音。
+   - edge-tts 依賴微軟的線上服務，偶爾會整體失效（出現 403 錯誤）。遇到時告知使用者服務暫時無法使用，**不要反覆重試**；需要音效時可改用 `ffmpeg` 合成。
 2. **影音與音訊剪輯**：
    - 底層處理優先使用 `ffmpeg` 命令。
 3. **影音下載與擷取**：
    - 優先使用 `yt-dlp`。
-4. **文件轉換與論文排版**：
-   - 文件格式轉換優先使用 `pandoc`；含中文的 PDF 輸出使用 `--pdf-engine=xelatex` 並以 `-V CJKmainfont=` 指定中文字型（字型名稱見第 5 節）。
+4. **文件轉換**：
+   - 文件格式轉換優先使用 `pandoc`。含中文的 PDF 輸出需指定中文字型（字型名稱見第 5 節）。
 
 ---
 
@@ -84,7 +85,7 @@ AI 不得盲目要求使用者重新安裝或再次全域下載；使用前若�
 | 項目 | Windows | macOS |
 | --- | --- | --- |
 | 命令列 | PowerShell | zsh |
-| 系統套件安裝 | `winget install --id <Id> -e` | `brew install <套件>`（GUI／大型套件如 `mactex-no-gui` 需加 `--cask`） |
+| 系統套件安裝 | `winget install --id <Id> -e` | `brew install <套件>`（GUI 應用程式需加 `--cask`） |
 | 檢查工具是否存在 | `Get-Command <指令>` | `command -v <指令>` |
 | 手動啟用虛擬環境 | `.venv\Scripts\Activate.ps1` | `source .venv/bin/activate` |
 | 中文 PDF 字型 | `Microsoft JhengHei` | `Songti TC`（或 `Heiti TC`） |
@@ -96,5 +97,5 @@ AI 不得盲目要求使用者重新安裝或再次全域下載；使用前若�
 
 ### macOS 注意事項
 
-1. 不要使用 `sudo` 執行 `brew` 或 `uv`；只有 MacTeX 的 `tlmgr` 補裝套件需要 `sudo`。
+1. 不要使用 `sudo` 執行 `brew` 或 `uv`。
 2. Apple Silicon 的 Homebrew 位於 `/opt/homebrew`，Intel Mac 位於 `/usr/local`；不要寫死其中一個路徑。

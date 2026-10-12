@@ -12,7 +12,7 @@
 
 ## Step 1：初始化（只做一次）
 
-在 VS Code 按 **Ctrl + `** 開啟終端機，執行：
+在 Antigravity IDE 選單「終端機 → 新增終端機」（Terminal → New Terminal）開啟終端機，執行：
 
 ```powershell
 git init
@@ -25,7 +25,7 @@ uv init --bare
 
 ## Step 2：第 0 輪，請 AI 寫程式
 
-1. 在這個 VS Code 視窗開啟 AI 工具（例如 Claude Code），輸入：
+1. 在這個 Antigravity IDE 視窗開啟 AI 面板，輸入：
    ```text
    請依照 REQUIREMENTS.md 寫出程式，並用 grades.csv 執行一次。
    ```

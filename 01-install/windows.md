@@ -7,6 +7,8 @@
 > - 以下命令會自動接受 WinGet 來源條款與各套件的授權協議，請確認你同意後再執行。
 > - 安裝時請勿在已啟用 Python 虛擬環境（`.venv`）的視窗中執行。
 
+> 開始之前：若要把安裝工作交給 AI，請先完成[第 0 步：安裝 Antigravity IDE](00-antigravity.md)。
+
 ---
 
 ## 事前確認：WinGet
@@ -159,18 +161,15 @@ rg "API_KEY" -g "!node_modules/**"  # 不在 Git 儲存庫時，手動排除 nod
 
 ---
 
-## 模組三：論文寫作工具（Pandoc + LaTeX）
+## 模組三：文件轉換工具（Pandoc）
 
-包含：`Pandoc`（文件轉換）、`MiKTeX`（LaTeX 排版引擎，提供 `xelatex`，支援中文）。
+包含：`Pandoc`（Markdown、Word、HTML 等格式互轉）。安裝檔小，幾秒鐘就完成。
 
-- 若電腦已安裝其他 LaTeX 發行版（例如 TeX Live），偵測到 `xelatex` 會自動跳過，不會重複安裝。
-- MiKTeX 採「用到才下載」：初始安裝較小，編譯時缺少的 LaTeX 套件（如 `xeCJK`）會自動下載。
-- MiKTeX 安裝檔較大，需要數分鐘；建議在穩定的寬頻網路下安裝。
+> 本課程的練習都**不需要全域安裝 LaTeX**。唯一需要 PDF 的是階段六的 APA 排版作業：照該作業的提示語，AI 會把 Tectonic 下載到那個專案的 `tools/` 資料夾（下載前會先詢問你）；無法下載時，可改用 Overleaf 線上編譯。
 
 ```powershell
 $failed = @()
 
-# 1. Pandoc
 if (Get-Command pandoc -ErrorAction SilentlyContinue) {
     Write-Host "[已安裝] pandoc，跳過。" -ForegroundColor Yellow
 } else {
@@ -179,75 +178,47 @@ if (Get-Command pandoc -ErrorAction SilentlyContinue) {
     if ($LASTEXITCODE -notin 0, -1978335189) { $failed += "JohnMacFarlane.Pandoc" }
 }
 
-# 2. LaTeX（MiKTeX）
-$miktexInstalled = $false
-if (Get-Command xelatex -ErrorAction SilentlyContinue) {
-    Write-Host "[已安裝] LaTeX（xelatex），跳過。" -ForegroundColor Yellow
-} else {
-    Write-Host "[缺少] 正在安裝 MiKTeX ..." -ForegroundColor Cyan
-    winget install --id MiKTeX.MiKTeX -e --source winget --accept-package-agreements --accept-source-agreements
-    if ($LASTEXITCODE -notin 0, -1978335189) { $failed += "MiKTeX.MiKTeX" } else { $miktexInstalled = $true }
-}
-
-# 3. 重載 PATH（保留目前視窗原有的路徑）
+# 重載 PATH（保留目前視窗原有的路徑）
 $env:Path = [Environment]::GetEnvironmentVariable("Path", "Machine") + ";" + [Environment]::GetEnvironmentVariable("Path", "User") + ";" + $env:Path
-
-# 4. MiKTeX：開啟缺少套件自動安裝（不跳出詢問視窗）
-$initexmf = (Get-Command initexmf -ErrorAction SilentlyContinue).Source
-if (-not $initexmf) {
-    $fallback = "$env:LOCALAPPDATA\Programs\MiKTeX\miktex\bin\x64\initexmf.exe"
-    if (Test-Path $fallback) { $initexmf = $fallback }
-}
-if ($initexmf) {
-    & $initexmf --set-config-value="[MPM]AutoInstall=yes"
-    if ($LASTEXITCODE -ne 0) { $failed += "MiKTeX 自動安裝設定" }
-} elseif ($miktexInstalled) {
-    $failed += "MiKTeX 自動安裝設定"
-    Write-Warning "找不到 initexmf，請重新開啟 PowerShell 後執行：initexmf --set-config-value=`"[MPM]AutoInstall=yes`""
-}
 
 if ($failed) {
     Write-Host "`n以下項目安裝失敗：$($failed -join ', ')。請查看上方錯誤訊息，處理後重新執行本段。" -ForegroundColor Red
 } else {
-    Write-Host "`n論文工具安裝檢查完成！" -ForegroundColor Green
+    Write-Host "`n文件轉換工具安裝檢查完成！" -ForegroundColor Green
 }
 ```
 
-### 論文工具驗證
-
-先確認版本：
+### 文件轉換工具驗證
 
 ```powershell
 pandoc --version
-xelatex --version
 ```
 
-再實際編譯一份中文 PDF（**第一次會下載 xeCJK 等套件並建立字型快取，可能需要數分鐘，畫面停住屬正常現象，請勿按 Ctrl+C 中斷**）：
+再實際把一份含中文表格的 Markdown 轉成 Word：
 
 ```powershell
 Set-Location $env:TEMP
-[IO.File]::WriteAllText("$env:TEMP\chinese-test.md", "中文論文測試：繁體中文可以正常顯示。", [Text.UTF8Encoding]::new($false))
-pandoc chinese-test.md -o chinese-test.pdf --pdf-engine=xelatex -V CJKmainfont="Microsoft JhengHei"
-if ($LASTEXITCODE -eq 0 -and (Test-Path chinese-test.pdf)) {
-    Write-Host "中文 PDF 編譯成功！" -ForegroundColor Green
-    Start-Process chinese-test.pdf
+[IO.File]::WriteAllText("$env:TEMP\pandoc-test.md", "# 轉檔測試`n`n| 欄位 | 內容 |`n| --- | --- |`n| 中文 | 正常顯示 |", [Text.UTF8Encoding]::new($false))
+pandoc pandoc-test.md -o pandoc-test.docx
+if ($LASTEXITCODE -eq 0 -and (Test-Path pandoc-test.docx)) {
+    Write-Host "Word 轉檔成功！" -ForegroundColor Green
+    Start-Process pandoc-test.docx
 } else {
-    Write-Host "中文 PDF 編譯失敗，請查看上方錯誤訊息。" -ForegroundColor Red
+    Write-Host "Word 轉檔失敗，請查看上方錯誤訊息。" -ForegroundColor Red
 }
 ```
 
-### 論文工具使用範例
+### 文件轉換工具使用範例
 
 ```powershell
-# Markdown 轉 Word（只需要 pandoc）
-pandoc thesis.md -o thesis.docx
-
-# Markdown 轉 PDF（中文需用 xelatex 並指定中文字型）
-pandoc thesis.md -o thesis.pdf --pdf-engine=xelatex -V CJKmainfont="Microsoft JhengHei"
-
-# 直接編譯 LaTeX 論文（.tex 檔內需已載入 xeCJK 並設定中文字型）
-xelatex thesis.tex
+pandoc report.md -o report.docx     # Markdown 轉 Word
+pandoc report.docx -o report.md     # Word 轉 Markdown（方便交給 AI 整理）
+pandoc report.md -o report.html     # Markdown 轉網頁
 ```
+
+### 選讀：需要完整 LaTeX 時
+
+自己要用 LaTeX 寫論文（例如學校的論文範本）時，才需要另外安裝完整的 LaTeX 發行版，例如 MiKTeX：`winget install --id MiKTeX.MiKTeX -e`（安裝檔較大，建議在家中寬頻網路安裝）。本課程不需要。
 
 ---
 

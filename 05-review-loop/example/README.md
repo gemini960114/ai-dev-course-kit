@@ -1,7 +1,7 @@
 # 示範案例：安裝教材的交叉審查紀錄
 
 **產出內容：** Windows／macOS 開發環境安裝教材（README.md、AGENTS.md、windows/install-quick.md、macos/install-quick.md）。  
-**註：** 紀錄中的檔名是審查當時的名稱；目前安裝指南已改為 `01-install/windows.md`、`01-install/macos.md`。  
+**註：** 本紀錄保留審查當時的內容。之後教材又有修改：檔名改為 `01-install/windows.md`、`01-install/macos.md`；模組三改為只安裝 Pandoc，紀錄中與 LaTeX（MiKTeX、MacTeX、中文 PDF 字型）相關的討論是當時的版本。  
 **產出者：** Claude Code（Claude Opus）。  
 **審查者：** 5 位 AI 專家，共 3 輪。  
 **結果：** 第 3 輪兩位審查者都判定「可以發布」，沒有 🔴 項目。

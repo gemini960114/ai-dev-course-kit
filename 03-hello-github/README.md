@@ -1,6 +1,6 @@
 # 階段三：連線 GitHub（hello-github）
 
-約 30 分鐘。完成後，你的電腦就能把程式推上 GitHub，接著進行 [04-web-game](../04-web-game/README.md) 練習。
+約 30 分鐘。完成後，你的電腦就能把程式推上 GitHub。下一個階段依課程路線而定（見[課程總覽](../README.md)）。
 
 **先記住一句話：登入和 GitHub 網站上的事用 `gh`，檔案版本（commit、push）用 `git`。**
 
@@ -10,7 +10,7 @@
 
 ## Step 1：登入 GitHub（只做一次）
 
-把下面這段貼給 AI（例如 Claude Code）：
+把下面這段貼給 Antigravity IDE 的 AI：
 
 ```text
 請確認 gh 已安裝（沒有才依 AGENTS.md 安裝），然後用瀏覽器裝置驗證方式登入 GitHub，不要用 personal access token：
@@ -31,16 +31,18 @@
 mkdir ~/Documents/hello-github
 cd ~/Documents/hello-github
 uv init --bare
-code .
+antigravity-ide .
 ```
 
-在 VS Code 對 AI 說：
+> 若找不到 `antigravity-ide` 指令，改在 Antigravity IDE 選「檔案 → 開啟資料夾」（File → Open Folder），開啟 `hello-github`。
+
+在 Antigravity IDE 對 AI 說：
 
 ```text
 寫一個 hello.py，印出「Hello GitHub」和今天的日期。
 ```
 
-在 VS Code 的終端機執行：
+在 Antigravity IDE 的終端機（選單「終端機 → 新增終端機」（Terminal → New Terminal））執行：
 
 ```powershell
 uv run hello.py

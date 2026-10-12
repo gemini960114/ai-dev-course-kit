@@ -1,6 +1,6 @@
 # 階段四：做一個網頁小遊戲
 
-約 30～40 分鐘。用 Node.js 建立 React 專案，請 AI 寫一個小遊戲，在瀏覽器裡玩。完成後接著進行 [05-review-loop](../05-review-loop/README.md)。
+約 30～40 分鐘。用 Node.js 建立 React 專案，請 AI 寫一個小遊戲，在瀏覽器裡玩。下一個階段依課程路線而定（見[課程總覽](../README.md)）。
 
 > 需要：模組一已安裝 Node.js。
 
@@ -8,7 +8,7 @@
 
 ## Step 1：建立空資料夾並開啟
 
-在「文件」裡新增一個空資料夾 `my-game`，在 VS Code 選「檔案 → 開啟資料夾」開啟它，再開啟 AI 工具（例如 Claude Code）。
+在「文件」裡新增一個空資料夾 `my-game`，在 Antigravity IDE 選「檔案 → 開啟資料夾」（File → Open Folder）開啟它，再開啟 Antigravity IDE 的 AI 面板。
 
 > AI 只能在目前開啟的資料夾裡工作，所以要先開好資料夾。
 

@@ -17,7 +17,7 @@
 
 ## Step 1：開啟資料夾
 
-在 VS Code 選「檔案 → 開啟資料夾」，**只開啟 `02-organize-data` 這個資料夾**，再開啟 AI 工具（例如 Claude Code）。
+在 Antigravity IDE 選「檔案 → 開啟資料夾」（File → Open Folder），**只開啟 `02-organize-data` 這個資料夾**，再開啟 Antigravity IDE 的 AI 面板。
 
 ## Step 2：請 AI 整理比較表
 

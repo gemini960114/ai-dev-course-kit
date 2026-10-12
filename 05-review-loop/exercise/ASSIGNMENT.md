@@ -27,7 +27,7 @@ grade-stats/
 └── review-log/      ← 放每一輪的審查紀錄
 ```
 
-把**整個 `grade-stats` 資料夾複製到教材資料夾以外的地方**（例如「文件」底下），用 VS Code 開啟它，再執行 `git init` 與 `uv init --bare`。
+把**整個 `grade-stats` 資料夾複製到教材資料夾以外的地方**（例如「文件」底下），用 Antigravity IDE 開啟它，再執行 `git init` 與 `uv init --bare`。
 
 > 複製前先確認「文件」裡沒有同名的 `grade-stats` 資料夾；若已存在，請先改名備份，避免新舊檔案混在一起。
 
@@ -40,7 +40,7 @@ Copy-Item -Recurse 05-review-loop\exercise\grade-stats $HOME\Documents\grade-sta
 cd $HOME\Documents\grade-stats
 git init
 uv init --bare
-code .
+antigravity-ide .
 ```
 
 macOS（終端機，在教材資料夾中執行）：
@@ -50,12 +50,12 @@ cp -R 05-review-loop/exercise/grade-stats ~/Documents/grade-stats
 cd ~/Documents/grade-stats
 git init
 uv init --bare
-code .
+antigravity-ide .
 ```
 
 **之後的作業都在這個資料夾裡進行**，AI 工具也在這裡開啟。
 
-> 不想用指令的話：用檔案總管（Finder）把 `grade-stats` 資料夾複製到「文件」，在 VS Code 選「檔案 → 開啟資料夾」開啟它，再在 VS Code 的終端機執行 `git init` 與 `uv init --bare`。
+> 不想用指令的話：用檔案總管（Finder）把 `grade-stats` 資料夾複製到「文件」，在 Antigravity IDE 選「檔案 → 開啟資料夾」（File → Open Folder）開啟它，再在 Antigravity IDE 的終端機執行 `git init` 與 `uv init --bare`。
 
 1. **第 0 輪：產出。** 確認已執行 `uv init --bare`，再對 AI 說「請依照 REQUIREMENTS.md 寫出程式，並用 grades.csv 執行一次」，確認可以執行後執行 `git add -A` 與 `git commit -m "第 0 輪：初版"`。
 2. **第 1 輪以後：交叉審查。** 依 REVIEW-LOOP.md 的四個步驟進行，每一輪：

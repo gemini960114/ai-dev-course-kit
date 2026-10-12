@@ -58,7 +58,7 @@ AI 會存成 `review-log/round-N-prompt.md`。每一輪都用同一段提示語�
 
 ### 步驟 ③：交給另一個 AI 審查
 
-把 prompt 貼給**不同的 AI 工具**（例如產出用 Claude，審查用 ChatGPT 或 Gemini）。
+把 prompt 貼給**不同的 AI**（例如產出用 Antigravity IDE，審查用 ChatGPT 網頁版）。審查用的 AI 要和產出用的 AI 使用**不同的模型**，否則容易互相認同。
 
 - 審查者讀不到你的檔案時（例如網頁版），把檔案內容貼在 prompt 最後。
 - 把回覆**原文**存成 `review-log/round-N-review.md`。
